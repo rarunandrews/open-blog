@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<!--Main Context Area-->
+<div class="container" style="margin-right: 290px;"><br>
+
+<form class="" action="{{ url_for('views.contact') }}" method="POST">
+    <h3>Contact Us</h3><br>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <label>E-Mail Address</label>
+        <input type="email" class="form-control" placeholder="E-Mail Address" name="email" id="title" required data-validation-required-message="Please enter a title.">
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <label>Your Message</label>
+        <textarea rows="12" class="form-control" placeholder="Your Message" name="message" id="content" required data-validation-required-message="Please enter a message."></textarea>
+</div></div><br>
+    <button type="submit" class="btn pbtn text-white">Send</button>
+    <button type="clear" class="btn btn-secondary">Clear</button>
+  </form>
+</div>
+{% endblock %}

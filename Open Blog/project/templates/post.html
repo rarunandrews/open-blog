@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<!--Main Context Area-->
+<link href="../static/clean-blog.min.css" rel="stylesheet">
+<div class="container" style="margin-right: 290px;"><br>
+    <form action="{{ url_for('views.post') }}" method="POST">
+    <h3>Create New Post</h3><br>
+    <div class="banner mb-6">
+        <input type="file" name="coverimg" accept="image/*" id="banner-upload" onchange="loadFile(event);" hidden>
+        <img id="output" class="cimg" >
+        <label for="banner-upload" class="banner-upload-btn"><img src="../static/pics/upload.png" alt="upload banner"></label>
+    </div>
+    <br><br>
+    <div class="control-group">
+        <div class="form-group floating-label-form-group controls">
+          <label>Blog Title</label>
+          <input type="text" class="form-control" placeholder="Blog Title" name="title" id="title" required data-validation-required-message="Please enter a title.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls">
+          <label>Subtitle</label>
+          <input type="text" class="form-control" placeholder="Subtitle" name="subtitle" id="subtitle" required data-validation-required-message="Please enter your email address.">
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label>Category</label>
+      <select class="form-select form-control" aria-label="Default select example" name="category" style="color: #777;">
+        <option selected disabled hidden>Category</option>
+        <option value="Technology" >Technology</option>
+        <option value="Entertainment" >Entertainment</option>
+        <option value="Sports" >Sports</option>
+        <option value="Economy" >Economy</option>
+        <option value="Politics" >Politics</option>
+        <option value="Lifestyle" >Life Style</option>
+        <option value="Science" >Science</option>
+      </select>
+      <p class="help-block text-danger"></p>
+    </div></div>
+
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls">
+          <label>Content</label>
+          <textarea rows="12" class="form-control" placeholder="Content" name="content" id="content" required data-validation-required-message="Please enter a message."></textarea>
+</div></div>
+    <button class="btn pbtn text-white" type="submit">Post</button>
+    <button class="btn btn-secondary" type="clear">Clear</button>
+
+</form>
+
+</div>
+<script>
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+          URL.revokeObjectURL(output.src) // free memory
+        }
+      };
+</script>
+
+{% endblock %}

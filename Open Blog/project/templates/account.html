@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+<!--Main Context Area-->
+<div class="container" style="margin-right:350px; "><br>
+ <h3>My Account</h3> 
+   
+<img src="../static/profile_pics/{{account.profilepic}}" style="width: 300px; border-radius:5px; margin-left:330px;"> 
+
+<form class="formn row g-3 needs-validation" action="{{ url_for('views.update_ac') }}" method="POST" novalidate style="margin-top: 30px; margin-left:80px;">
+
+      <div class="col-md-6">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Name" required value="{{account.name}}">
+        <div class="invalid-feedback">
+          Please enter your name.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <fieldset disabled>
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+          <input type="text" class="form-control" name="username" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" required value="{{account.username}}">
+          <div class="invalid-feedback">
+            Please enter a username.
+          </div>
+        </div></fieldset>
+      </div>
+      <div class="">
+        <label for="exampleInputEmail1" class="form-label">Profile Picture</label>
+        <label for="formFile" class="form-label" style="color: #4d4d4d;">Profile picture</label>
+        <input class="form-control" name="profilepic" type="file" id="formFile">
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1" class="form-label">Mobile</label>
+        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile Number" required value="{{account.mobile}}">
+        <!-- <div class="" style="color: red;">
+          <span> Please enter your mobile number</span>
+        </div> -->
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control form-control-warning" name="email" id="email"   placeholder="Email address"  value="{{account.email}}" required>
+        <!-- <div class="" style="color: red;">
+          <span> provide a Email address.</span>
+        </div> -->
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required value="{{account.password}}">
+        <div class="invalid-feedback">
+          Please enter password.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" required value="{{account.password}}">
+        <div class="invalid-feedback">
+          password does not match.
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn pbtn text-white" type="submit">Update</button>
+        <button type="clear" class="btn sbtn text-white ">Clear</button>
+      </div>
+      <div class="msg" style="color: red;">{{ msg }}</div>
+    </form>
+</div>
+{% endblock %}
+<script>
+  (function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>

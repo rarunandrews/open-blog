@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Norican&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
+
+*{
+    font-family: 'poppins';
+}
+html{
+    height: 100%;
+    background: #6441A5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+ .formn {
+    background-color: #f2f2f2;
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    font-size: 16px;
+    
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    left      : 50%;
+    top       : 50%;
+    width: 600px;
+    position  : absolute;
+    transform : translate(-50%, -50%); 
+
+
+}
+.pbtn{
+    
+    background-color:#6441A5;
+}
+.sbtn{
+    
+    background-color:gray;
+}
+
+.title{
+    color:#412377;
+    margin-left: 60px;
+    font-weight:600;
+    font-size: 40px;
+    font-family: 'viga', cursive;
+  }
+.pp{
+    font-size: 13px;
+}
+span{
+    color: #4d4d4d;
+}
+.btn-tap{
+    width:500px;
+    margin-top: 20px;
+}
+
+.check-bx{
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.btn-group label{
+    font-size: 14px;
+}
+
+.categories .btn:hover {
+    background-color: #6441A5;
+}

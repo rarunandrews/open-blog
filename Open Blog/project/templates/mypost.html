@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+<!--Main Context Area-->
+<div class="container"><br>
+<h3>My Posts</h3><br>
+
+<div class="row row-cols-1 row-cols-md-2 g-4" id="myitems">
+ 
+  {%for post in mypost%}
+
+    <div class="col">
+      <a href="{{ url_for('views.viewpost',p_id = post.post_id) }}">
+        <div class="card">
+        <div class="img-hover-zoom">
+        <img src="../static/image/{{post.coverpic}}" href="#" class="card-img-top" style="z-index: -1;"></div></a>        
+        <div class="card-body bg-white" style="z-index:1; margin-top:-100px;">
+          <h5 class="card-title ctitle" >{{post.title}}</h5>
+          <p class="card-text cont">{{post.content}}</p>
+          <a href="{{ url_for('views.edit_post',p_id = post.post_id) }}" id=test ><button  class='btn btn-sm btn-secondary' name="delpos">Edit Post</button></a>
+          <a href="{{ url_for('views.delpos',p_id = post.post_id) }}" id=test onclick="return myFunction()"><button  class='btn btn-sm btn-danger' name="delpos">Delete Post</button></a>
+          
+
+          
+        </div>
+      </div>
+    </div>
+{%endfor%}
+
+    </div>
+    </div>
+</div>
+
+<div class="rbar">
+  <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;">
+
+
+    <h4 style=" margin-bottom:-8px;">Categories</h4>
+    <hr style="max-width: 250px;">
+
+    <div class="list-group">
+      <a href="{{ url_for('views.category',cat = 'Technology') }}" class=" cat-1 list-group-item list-group-item-action d-flex justify-content-between align-items-center" category-one="Technology">Technology
+        <span class="badge rounded-pill">14</span>
+      </a>
+      <a href="{{ url_for('views.category',cat = 'Entertainment') }}" class=" cat-2 list-group-item list-group-item-action d-flex justify-content-between align-items-center" category-one="Entertainment">Entertainment
+        <span class="badge rounded-pill">14</span>
+      </a>
+      <a href="{{ url_for('views.category',cat = 'Sports') }}" class=" cat-3 list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sports
+        <span class="badge rounded-pill">14</span>
+      </a>
+      <a href="{{ url_for('views.category',cat = 'Economy') }}" class=" cat-4 list-group-item list-group-item-action d-flex justify-content-between align-items-center">Economy
+        <span class="badge rounded-pill">14</span>
+      </a>
+      <a href="{{ url_for('views.category',cat = 'Politics') }}" class="cat-5 list-group-item list-group-item-action d-flex justify-content-between align-items-center">Politics
+        <span class="badge rounded-pill">14</span>
+      </a>
+      <a href="{{ url_for('views.category',cat = 'Lifestyle') }}" class="cat-6 list-group-item list-group-item-action d-flex justify-content-between align-items-center">Life Style
+        <span class="badge rounded-pill">14</span>
+      </a>
+      <a href="{{ url_for('views.category',cat = 'Science') }}" class="cat-7 list-group-item list-group-item-action d-flex justify-content-between align-items-center">Science
+        <span class="badge rounded-pill">14</span>
+      </a>
+    </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  function myFunction() {
+    if(confirm("Are you sure to delete this post!")) {
+
+    }else{
+      return false;
+    }
+  }
+</script>
+<script>
+  
+    function search() {
+      var input, filter, cards, cardContainer, h5,p, title,content,aname, i;
+      input = document.getElementById("searchbar");
+      filter = input.value.toUpperCase();
+      cardContainer = document.getElementById("myitems");
+      cards = cardContainer.getElementsByClassName("col");
+      for (i = 0; i < cards.length; i++) {
+          title = cards[i].querySelector(".card-body h5.card-title");
+          content = cards[i].querySelector(".card-body p.card-text");
+          if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+              cards[i].style.display = "flex";
+          } 
+          else if (content.innerText.toUpperCase().indexOf(filter) > -1){
+            cards[i].style.display = "flex";
+          }
+          else {
+              cards[i].style.display = "none";
+          }
+      }
+  }
+</script>
+{% endblock %}

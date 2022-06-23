@@ -1,0 +1,63 @@
+.floating-label-form-group {
+    font-size: 12.5px;
+
+    margin-bottom: 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #eee;
+  }
+  .floating-label-form-group input,.floating-label-form-group select,
+  .floating-label-form-group textarea {
+    font-size: 1.5em;
+  
+    z-index: 1;
+    padding: 0;
+    resize: none;
+    border: none;
+    border-radius: 0;
+    background: 0 0;
+    box-shadow: none !important;
+  
+  }
+  .floating-label-form-group input::-webkit-input-placeholder,.floating-label-form-group select::-webkit-input-placeholder,
+  .floating-label-form-group textarea::-webkit-input-placeholder {
+    color: #777;
+  
+  }
+  .floating-label-form-group label {
+    font-size: 1.0em;
+    line-height: 1.764705882em;
+  
+    z-index: 0;
+    top: 2em;
+    
+    margin: 0;
+    -webkit-transition: top 0.3s ease, opacity 0.3s ease;
+    -moz-transition: top 0.3s ease, opacity 0.3s ease;
+    -ms-transition: top 0.3s ease, opacity 0.3s ease;
+    transition: top 0.3s ease, opacity 0.3s ease;
+    vertical-align: middle;
+    vertical-align: baseline;
+    opacity: 0;
+  }
+  .floating-label-form-group .help-block {
+    margin: 15px 0;
+  }
+  .floating-label-form-group-with-value label {
+    top: 0;
+    opacity: 1;
+  }
+  .floating-label-form-group-with-focus label {
+    color: #412377;
+  }
+  form .form-group:first-child .floating-label-form-group {
+    border-top: 1px solid #eee;
+  }
+  select:required:invalid {
+    color: gray;
+  }
+  option[value=""][disabled] {
+    display: none;
+  }
+  option {
+    color: black;
+  }
